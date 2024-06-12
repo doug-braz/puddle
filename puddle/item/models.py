@@ -12,7 +12,7 @@ class Category(models.Model):
         return self.name # For correct exhibiting each category name in the Admin page
     
 class Item(models.Model):
-    category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE) # related_name makes it possible to access all the items of a given category. It creates an reverse relation between the models.
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     price = models.FloatField()

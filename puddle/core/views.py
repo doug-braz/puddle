@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from item.models import Item, Category
+from .forms import SignupForm
 
 def index(request):
     items = Item.objects.filter(is_sold=False)
@@ -11,3 +12,10 @@ def index(request):
 
 def contact(request):
     return render(request, 'core/contact.html')
+
+def signup(request):
+    form = SignUpForm()
+
+    return render(request, 'core/signup.html', {
+        'form':form # For passing the form to the Front-End
+    })

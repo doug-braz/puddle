@@ -25,8 +25,8 @@ def new(request):
 
             return redirect('item:detail', pk=item.id)
         
-        else:
-            form = NewItemForm()
+    else:
+        form = NewItemForm()
 
     return render(request, 'item/form.html', {
         'form':form,

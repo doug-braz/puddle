@@ -6,9 +6,12 @@ from .forms import SignupForm
 def index(request):
     items = Item.objects.filter(is_sold=False)
     categories = Category.objects.all()
+    query = request.GET.get('query','')
+
     return render(request, 'core/index.html', {
         'categories' : categories,
         'items' : items,
+        'query' : query,
     }) # In curly brackets, it is specified which data can be called upon in the template - in this case, the template will be able to access the categories and items defined in this view
 
 def contact(request):
